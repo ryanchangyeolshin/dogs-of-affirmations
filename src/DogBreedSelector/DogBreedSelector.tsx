@@ -79,7 +79,7 @@ const DogBreedSelector: React.FC<DogBreedSelectorProps> = ({
         disabled={!selectedBreed}
         className={`mt-auto w-full py-3 text-lg font-semibold rounded-lg transition-colors ${
           selectedBreed
-            ? "bg-indigo/20 text-white hover:bg-indigo/30 border border-white/10"
+            ? "bg-indigo/20 text-white hover:bg-indigo/30 border border-white cursor-pointer"
             : "bg-gray-300 text-gray-500 cursor-not-allowed"
         }`}
         onClick={() => setClickedNext(true)}
