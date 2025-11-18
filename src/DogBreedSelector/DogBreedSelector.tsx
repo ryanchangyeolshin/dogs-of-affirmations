@@ -5,13 +5,13 @@ import dogBreeds from "../../static/dogBreed";
 interface DogBreedSelectorProps {
   selectedBreed: string | null;
   setSelectedBreed: (breed: string | null) => void;
-  setClickedNext: (clicked: boolean) => void;
+  onClickNextHandler: () => void;
 }
 
 const DogBreedSelector: React.FC<DogBreedSelectorProps> = ({
   selectedBreed,
   setSelectedBreed,
-  setClickedNext,
+  onClickNextHandler,
 }) => {
   const [breeds, setBreeds] = useState<string[]>([]);
   const [search, setSearch] = useState<string>("");
@@ -82,7 +82,7 @@ const DogBreedSelector: React.FC<DogBreedSelectorProps> = ({
             ? "bg-indigo/20 text-white hover:bg-indigo/30 border border-white cursor-pointer"
             : "bg-gray-300 text-gray-500 cursor-not-allowed"
         }`}
-        onClick={() => setClickedNext(true)}
+        onClick={onClickNextHandler}
       >
         Next
       </button>
