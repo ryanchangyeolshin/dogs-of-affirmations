@@ -34,11 +34,11 @@ const DogBreedSelector: React.FC<DogBreedSelectorProps> = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 50 }}
       transition={{ duration: 1 }}
-      className="w-full max-w-lg min-w-[33vw] min-h-[33vh] mx-auto mt-10 p-6 rounded-2xl bg-white/10 backdrop-blur-lg shadow-2xl border border-white/10 text-white space-y-6 flex flex-col"
+      className="w-full max-w-lg min-w-[33vw] h-[33vh] mx-auto mt-10 p-6 rounded-2xl bg-white/10 backdrop-blur-lg shadow-2xl border border-white/10 text-white space-y-6 flex flex-col"
     >
       <h2 className="text-2xl font-bold text-white-800 text-center">
         Select a Dog Breed
@@ -58,29 +58,31 @@ const DogBreedSelector: React.FC<DogBreedSelectorProps> = ({
             <p className="p-4 text-gray-500 text-center">No breeds found.</p>
           )}
 
-          {filtered.map((breed) => (
-            <button
-              key={breed}
-              onClick={() => {
-                setSelectedBreed(breed);
-                setSearch(breed);
-              }}
-              className={`w-full text-left px-4 py-2 hover:bg-white/20 text-white capitalize ${
-                selectedBreed === breed ? "bg-white/30" : ""
-              }`}
-            >
-              {breed}
-            </button>
-          ))}
+          <ul className="h-100% overflow-y-auto rounded-lg border border-white/10 bg-white/5">
+            {filtered.map((breed) => (
+              <li
+                key={breed}
+                onClick={() => {
+                  setSelectedBreed(breed);
+                  setSearch(breed);
+                }}
+                className={`cursor-pointer w-full text-left px-4 py-2 hover:bg-white/20 text-white capitalize ${
+                  selectedBreed === breed ? "bg-white/30" : ""
+                }`}
+              >
+                {breed}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 
       <button
         disabled={!selectedBreed}
-        className={`mt-auto w-full py-3 text-lg font-semibold rounded-lg transition-colors ${
+        className={`mt-auto w-full py-3 text-lg font-semibold rounded-lg transition-colors duration-300 border ${
           selectedBreed
-            ? "bg-indigo/20 text-white hover:bg-indigo/30 border border-white cursor-pointer"
-            : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            ? "bg-indigo-500 text-white border-white hover:bg-white hover:text-indigo-500 cursor-pointer"
+            : "bg-gray-300 text-gray-500 cursor-not-allowed border-transparent"
         }`}
         onClick={onClickNextHandler}
       >

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import DogBreedSelector from "../DogBreedSelector/DogBreedSelector";
-import DogResults from "../DogResults/DogResults";
+import DogResultsModal from "../DogResultsModal/DogResultsModal";
 import type {
   DogAPIResponseType,
   MotivationalQuoteResponseType,
@@ -23,7 +23,7 @@ type OnClickHandlerFunction = () => void;
 
 const Container: React.FC = () => {
   const [selectedBreed, setSelectedBreed] = useState<string | null>(null);
-  const [clickedNext, setClickedNext] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const [dogImage, setDogImage] = useState<string>("");
   const [motivationalQuote, setMotivationalQuote] =
     useState<MotivationalQuoteResponseType | null>(null);
@@ -74,8 +74,12 @@ const Container: React.FC = () => {
       }
     };
 
+  const onClose = () => {
+    setOpenModal(false);
+  };
+
   const onClickNextHandler: OnClickHandlerFunction = async () => {
-    setClickedNext(true);
+    setOpenModal(true);
     const randomDogImage: DogAPIResponseType | undefined =
       await fetchRandomDogImage();
     if (randomDogImage) setDogImage(randomDogImage?.message);
@@ -86,14 +90,17 @@ const Container: React.FC = () => {
 
   return (
     <AnimatePresence>
-      {clickedNext === false ? (
-        <DogBreedSelector
-          selectedBreed={selectedBreed}
-          setSelectedBreed={setSelectedBreed}
-          onClickNextHandler={onClickNextHandler}
+      <DogBreedSelector
+        selectedBreed={selectedBreed}
+        setSelectedBreed={setSelectedBreed}
+        onClickNextHandler={onClickNextHandler}
+      />
+      {openModal && (
+        <DogResultsModal
+          dogImage={dogImage}
+          motivationalQuote={motivationalQuote}
+          onClose={onClose}
         />
-      ) : (
-        <DogResults dogImage={dogImage} motivationalQuote={motivationalQuote} />
       )}
     </AnimatePresence>
   );
