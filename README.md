@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# 🐶 Dogs of Affirmations  
+_A React + TypeScript + Vite web application_
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dogs of Affirmations is a simple, fun web application where users can:
 
-Currently, two official plugins are available:
+1. **Search for a dog breed**  
+2. **Select it from an auto-filtered list**  
+3. **Click “Next”**  
+4. Automatically receive:  
+   - A **random dog image** of the chosen breed  
+   - A **random motivational quote**  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project uses:
 
-## React Compiler
+- **React + TypeScript**
+- **Vite** for fast bundling and dev server
+- **Framer Motion** for smooth animations
+- **TailwindCSS** for styling
+- **Vitest + React Testing Library** for component testing
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🔍 Dog Breed Search  
+Type in any breed (e.g., _husky_, _pug_, _golden retriever_) and the list filters in real time.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🐕 Random Dog Image  
+After clicking **Next**, the app fetches and displays a random dog image for the selected breed.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 💬 Motivational Quote Generator  
+Each result displays a unique quote to brighten your day.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🎞 Smooth Animated Modal  
+Results appear in an animated modal powered by Framer Motion.
+
+### 📦 Install Dependencies
+`npm install`
+
+### ▶️ Run the Development Server
+```
+npm run dev
+```
+Then open:
+```
+http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🏗 Build for Production
 ```
+npm run build
+```
+The bundled output will be located in:
+```
+dist/
+```
+
+### 🧪 Running Tests (Vitest + React Testing Library)
+```
+npm run test
+```
+
+### 🐾 License
+MIT License © 2025
