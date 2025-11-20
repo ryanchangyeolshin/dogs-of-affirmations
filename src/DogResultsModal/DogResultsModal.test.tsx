@@ -65,12 +65,6 @@ describe("DogResultsModal", () => {
         onClose={onClose}
       />
     );
-
-    // backdrop = first div inside outer wrapper
-    const backdrop =
-      screen.getAllByRole("button", { hidden: true })[0] ??
-      screen.getByTestId("backdrop");
-
     // safer: find the element with the backdrop class
     const overlay = document.querySelector(".bg-black\\/50");
     expect(overlay).toBeTruthy();
