@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import type { MotivationalQuoteResponseType } from "../types/interfaces";
 import DogResultsModal from "./DogResultsModal";
 
 // Mock framer-motion to avoid animation issues in testing
@@ -12,16 +13,18 @@ vi.mock("framer-motion", () => ({
 }));
 
 describe("DogResultsModal", () => {
-  const dogImage = "https://example.com/dog.jpg";
-  const motivationalQuote = {
+  const dogImage: string = "https://example.com/dog.jpg";
+  const motivationalQuote: MotivationalQuoteResponseType = {
     quote: "Stay positive!",
     author: "Doggo",
+    categories: null,
+    work: null,
   };
 
-  let onClose: ReturnType<typeof vi.fn>;
+  let onClose: () => void;
 
   beforeEach(() => {
-    onClose = vi.fn();
+    onClose = vi.fn() as () => void;
   });
 
   it("renders the dog image", () => {
