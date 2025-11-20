@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import dogBreeds from "../../static/dogBreed";
 
 interface DogBreedSelectorProps {
@@ -38,7 +38,7 @@ const DogBreedSelector: React.FC<DogBreedSelectorProps> = ({
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 50 }}
       transition={{ duration: 1 }}
-      className="w-full max-w-lg min-w-[33vw] h-[33vh] mx-auto mt-10 p-6 rounded-2xl bg-white/10 backdrop-blur-lg shadow-2xl border border-white/10 text-white space-y-6 flex flex-col"
+      className="w-full max-w-lg min-w-60% min-h-[60vh] max-h-60% mx-auto mt-10 p-6 rounded-2xl bg-white/10 backdrop-blur-lg shadow-2xl border border-white/10 text-white space-y-6 flex flex-col"
     >
       <h2 className="text-2xl font-bold text-white-800 text-center">
         Select a Dog Breed

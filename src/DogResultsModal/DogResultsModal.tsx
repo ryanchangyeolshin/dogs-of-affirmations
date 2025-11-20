@@ -42,7 +42,7 @@ const DogResultsModal: React.FC<DogResultsModalProps> = ({
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: 50 }}
         transition={{ duration: 1 }}
-        className="relative w-full max-w-lg min-w-[33vw] max-w-100% min-h-100% max-h-[80vh] mx-auto p-6 rounded-2xl bg-white/10 backdrop-blur-lg shadow-2xl border border-white/10 text-white space-y-6 flex flex-col z-10"
+        className="relative w-full max-w-lg min-w-[33vw] max-w-100% max-h-100% mx-auto p-6 rounded-2xl bg-white/10 backdrop-blur-lg shadow-2xl border border-white/10 text-white space-y-6 flex flex-col z-10"
       >
         {dogImage && (
           <motion.img
