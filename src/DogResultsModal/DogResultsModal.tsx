@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import React, { useEffect } from "react";
 import type { MotivationalQuoteResponseType } from "../types/interfaces";
 
 interface DogResultsModalProps {
@@ -48,7 +48,7 @@ const DogResultsModal: React.FC<DogResultsModalProps> = ({
           <motion.img
             src={dogImage}
             alt="Dog"
-            className="rounded-xl max-w-[60vh] max-h-[60vh] mx-auto"
+            className="rounded-xl max-w-70% max-h-70% mx-auto"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
